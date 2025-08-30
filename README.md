@@ -69,10 +69,34 @@ fastp --in1 sample.fastq.gz --out1 cleaned.fastq.gz ...
 
 ---
 
-### Step X – Mapping
+### Step 3 – Mapping
 
 **Purpose:** mapping reads to reference genome
 **Tools:** 'bwa'
 **Inputs:** ...
+**Outputs:** ...
+**Command:**
+
+```bash
+fastp --in1 sample.fastq.gz --out1 cleaned.fastq.gz ...
+```
+
+---
+
+### Step 4 – Depth and coverage analysis
+
+**Purpose:** mapping reads to reference genome
+**Tools:** 'bwa'
+**Inputs:** ...
+**Outputs:** ...
+**Command:**
+
+```bash
+fastp --in1 sample.fastq.gz --out1 cleaned.fastq.gz ...
+```
+
+---
+**Outputs:** ...
+**Command:**
 **Outputs:** ...
 **Command:**
