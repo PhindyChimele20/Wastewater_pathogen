@@ -8,11 +8,18 @@ The subsampled and cleaned FASTQs are stored in `data/` and are used as the inpu
 ---
 ## 2. How to download
 
-INSTRUCTIONS TO ACCESS THE DATA
-### Example using SRA Toolkit
+All raw data used in this study is available through BioProjects PRJNA941107, where the SRA accessions can be accessed as well. Using the SRA accession numbers,
+the data was downloaded using the SRA Toolkit as per code below:
+### SRA Toolkit
 
 ```bash
-CODE TO DOWNLOAD
+SRRS=("SRX19564680" "SRX19564679" "SRX19564678" "SRX19564677" "SRX19564676" "SRX19564675" "SRX19564674" "SRX19564673" "SRX19564672" "SRX19564671")
+
+for SRR in "${SRRS[@]}"; do
+    echo "Downloading $SRR ..."
+    prefetch "$SRR"
+    fastq-dump --gzip --split-files "$SRR"
+done
 ```
 
 
