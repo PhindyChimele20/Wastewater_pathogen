@@ -1,21 +1,9 @@
-#!/bin/bash
-#PBS -l select=1:ncpus=24:mpiprocs=24:nodetype=haswell_reg
-#PBS -N wastewater_pr
-#PBS -P CBBI1661
-#PBS -l walltime=16:00:00
-#PBS -q smp
-#PBS -o /mnt/lustre/users/pntuli/sepal_projects/wastewater/wastewater.out
-#PBS -e /mnt/lustre/users/pntuli/sepal_projects/wastewater/wastewater.err
-#PBS -m abe
-#PBS -M phindilejessica@gmail.com
-
-cd /mnt/lustre/users/pntuli/sepal_projects/wastewater
 
 # Load required modules
 module load chpc/BIOMODULES
 module load bwa
 module load samtools/1.9
-module load trimmomatic/0.39   # <--- 🔴 if this doesn't exist, trimming will fail
+module load trimmomatic/0.39   
 
 # Reference genome
 REF="sequence.fasta"
@@ -26,10 +14,10 @@ bwa index $REF
 samtools faidx $REF
 
 # Output directory (avoid writing to / )
-OUT_DIR="/mnt/lustre/users/pntuli/sepal_projects/wastewater/results"
+OUT_DIR="/results"
 mkdir -p $OUT_DIR
 
-FASTQ_DIR="/mnt/lustre/users/pntuli/sepal_projects/wastewater"
+FASTQ_DIR="/data"
 
 # Initialize QC summary file
 echo -e "Sample\tMappedPct\tBreadth10\tBreadth20\tMedianDepth" > $OUT_DIR/QC_summary.tsv
