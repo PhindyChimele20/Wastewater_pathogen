@@ -10,18 +10,18 @@ questions:
       What is the median read length of read SRR23702977_1?
     answer_type: integer_exact
   - id: q3
-    stage: alignment
+    stage: mapping
     text: |
-      What percent of reads uniquely map to the reference genome?
+      What percentage of reads aligned to the reference genome for the sample SRR23702977?
     answer_type: numeric_percent
     tolerance: 0.75
   - id: q4
-    stage: variant_calling
+    stage: Coverage_breadth
     text: |
-      How many total variants were found?
+      How much of the viral genome is covered at 10× for the sample SRR23702981?
     answer_type: integer_exact
   - id: q5
-    stage: variant_calling
+    stage: Depth_of_coverage
     text: |
-      How many variant sites have at least 1 alternate allele call?
+      How deeply was the genome covered for the sample SRR23702980?
     answer_type: integer_exact
