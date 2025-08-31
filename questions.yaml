@@ -2,12 +2,12 @@ questions:
   - id: q1
     stage: quality_control
     text: |
-      How many total sequences were flagged for being poor quality?
+      What is the duplication level in the raw reads?
     answer_type: numeric_percent
   - id: q2
-    stage: alignment
+    stage: quality_control
     text: |
-      What is the total number of reads with quality score less than 20?
+      What is the median read length of read SRR23702977_1?
     answer_type: integer_exact
   - id: q3
     stage: alignment
