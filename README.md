@@ -47,14 +47,15 @@ The workflow files is stored in `workflow/`.
 
 ### Step 1 – Quality Control 
 
-**Purpose:** Check the quality of the readsRemove low-quality reads and adapter sequences
-**Tools:** `fastqc`, `multiqc`, `trimmomatic`
+**Purpose:** Check the quality of the reads
+**Tools:** `fastqc`, `multiqc`, 
 **Inputs:** Subsampled FASTQ files (from `data/fastq_subsampled/`)
-**Outputs:** Cleaned FASTQs, QC reports (`.html`, `.json`, or `.txt`)
+**Outputs:** Cleaned FASTQs, QC reports (`.html`)
 **Command:**
 
 ```bash
-fastp --in1 sample.fastq.gz --out1 cleaned.fastq.gz ...
+fastqc *.fastq.gz
+multiqc .
 ```
 
 ---
