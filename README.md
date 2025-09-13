@@ -26,14 +26,16 @@ done
 ---
 ## 3. Pre-processing / subsampling
 
-INCLUDE THE METHOD YOU USED TO SUBSAMPLE, MINATURIZE, OR TRIM DOWN
+Miniarization was done by compressiong the fastq files using zip
 
 1. **STEP 1** ...
 
 Example:
 
 ```bash
-CODE TO SUBSAMPLE
+for file in *.fastq; do
+    zip "${file}.zip" "$file"
+done
 ```
 
 
@@ -54,7 +56,7 @@ The workflow files is stored in `workflow/`.
 **Command:**
 
 ```bash
-fastqc *.fastq.gz
+fastqc *.fastq
 multiqc .
 ```
 
@@ -79,7 +81,7 @@ multiqc .
 **Command:**
 
 ```bash
-fastp --in1 sample.fastq.gz --out1 cleaned.fastq.gz ...
+fastp --in1 sample.fastq.gz --out1 cleaned.fastq 
 ```
 
 ---
