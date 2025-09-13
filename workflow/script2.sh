@@ -1,6 +1,5 @@
 
 # Load required modules
-module load chpc/BIOMODULES
 module load bwa
 module load samtools/1.9
 module load trimmomatic/0.39   
@@ -23,10 +22,10 @@ FASTQ_DIR="/data"
 echo -e "Sample\tMappedPct\tBreadth10\tBreadth20\tMedianDepth" > $OUT_DIR/QC_summary.tsv
 
 # Loop over all R1 files
-for R1 in ${FASTQ_DIR}/*_1.fastq.gz
+for R1 in ${FASTQ_DIR}/*_1.fastq
 do
-    R2=${R1/_1.fastq.gz/_2.fastq.gz}
-    SAMPLE=$(basename $R1 _1.fastq.gz)
+    R2=${R1/_1.fastq.gz/_2.fastq}
+    SAMPLE=$(basename $R1 _1.fastq)
 
     echo "Processing sample: $SAMPLE"
 
@@ -42,11 +41,11 @@ do
     then
         trimmomatic PE -threads 8 \
             $R1 $R2 \
-            $OUT_DIR/${SAMPLE}_R1_paired.fastq.gz $OUT_DIR/${SAMPLE}_R1_unpaired.fastq.gz \
-            $OUT_DIR/${SAMPLE}_R2_paired.fastq.gz $OUT_DIR/${SAMPLE}_R2_unpaired.fastq.gz \
+            $OUT_DIR/${SAMPLE}_R1_paired.fastq $OUT_DIR/${SAMPLE}_R1_unpaired.fastq \
+            $OUT_DIR/${SAMPLE}_R2_paired.fastq $OUT_DIR/${SAMPLE}_R2_unpaired.fastq \
             SLIDINGWINDOW:4:20 MINLEN:50
 
-        bwa mem $REF $OUT_DIR/${SAMPLE}_R1_paired.fastq.gz $OUT_DIR/${SAMPLE}_R2_paired.fastq.gz > $OUT_DIR/${SAMPLE}.trimmed.sam
+        bwa mem $REF $OUT_DIR/${SAMPLE}_R1_paired.fastq $OUT_DIR/${SAMPLE}_R2_paired.fastq > $OUT_DIR/${SAMPLE}.trimmed.sam
         samtools view -bS $OUT_DIR/${SAMPLE}.trimmed.sam > $OUT_DIR/${SAMPLE}.trimmed.bam
         samtools sort -o $OUT_DIR/${SAMPLE}.trimmed.sorted.bam $OUT_DIR/${SAMPLE}.trimmed.bam
         samtools index $OUT_DIR/${SAMPLE}.trimmed.sorted.bam
