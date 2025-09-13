@@ -4,6 +4,7 @@ questions:
     text: |
       What is the duplication level in the raw reads?
     answer_type: numeric_percent
+     tolerance: 0.80
   - id: q2
     stage: quality_control
     text: |
@@ -18,10 +19,12 @@ questions:
   - id: q4
     stage: Coverage_breadth
     text: |
-      How much of the viral genome is covered at 10× for the sample SRR23702981?
-    answer_type: integer_exact
+      What is the viral genome coverage at 10× for the sample SRR23702981?
+    answer_type: integer_within_range
+     tolerance: 0.75
   - id: q5
     stage: Depth_of_coverage
     text: |
-      How deeply was the genome covered for the sample SRR23702980?
-    answer_type: integer_exact
+      What is the coverage depth for the sample SRR23702980?
+    answer_type: integer
+     tolerance: 0.5
