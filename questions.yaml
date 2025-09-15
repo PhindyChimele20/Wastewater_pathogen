@@ -10,21 +10,22 @@ questions:
     text: |
       What is the median read length of read SRR23702977_1?
     answer_type: integer_exact
+     tolerance: 0.50
   - id: q3
     stage: mapping
     text: |
       What percentage of reads aligned to the reference genome for the sample SRR23702977?
     answer_type: numeric_percent
-    tolerance: 0.75
+    tolerance: 0.5
   - id: q4
     stage: Coverage_breadth
     text: |
       What is the viral genome coverage at 10× for the sample SRR23702981?
     answer_type: integer_within_range
-     tolerance: 0.75
+     tolerance: 1
   - id: q5
     stage: Depth_of_coverage
     text: |
       What is the coverage depth for the sample SRR23702980?
     answer_type: integer
-     tolerance: 0.5
+     tolerance: 1
