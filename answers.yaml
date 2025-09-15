@@ -1,6 +1,6 @@
 answers:
   q1: 66% to 96%
-  q2: 151
-  q3: 100
-  q4: 81
+  q2: 151 (151 ± 5%)
+  q3: 100 (5% tolerance)
+  q4: 81 (0 ± 10% with minimum absolute range)
   q5: 4546 (with 10% tolerance for answers close)
